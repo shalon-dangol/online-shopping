@@ -19,7 +19,7 @@ if (isset($_Get['action'])) {
 				<!-- ============================================================= LOGO ============================================================= -->
 				<div class="logo">
 					<a href="index.php">
-						<img style="height: 120px;width:120px;" src="./assets/images/siteLogo.png" />
+						<img style="height: 180px; width:180px;" src="./assets/images/siteLogo.png" />
 					</a>
 				</div>
 			</div>

@@ -45,10 +45,22 @@ if (strlen($_SESSION['login']) == 0) {
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="assets/images/favicon.ico">
+		<style>
+			.esewa {
+				height: 40px;
+				width: 70px;
+				margin: 10px 0;
+			}
+
+			.esewa:hover {
+				border: 2px solid green;
+
+			}
+		</style>
+
 	</head>
 
 	<body class="cnt-home">
-
 
 		<header class="header-style-1">
 			<?php include('includes/top-header.php'); ?>
@@ -91,17 +103,27 @@ if (strlen($_SESSION['login']) == 0) {
 										<!-- panel-body  -->
 										<div class="panel-body">
 											<form name="payment" method="post">
-												<input type="radio" name="paymethod" value="COD" checked="checked"> COD
-												<input type="radio" name="paymethod" value="Internet Banking"> Internet Banking
-												<input type="radio" name="paymethod" value="Debit / Credit card"> Debit / Credit card <br /><br />
+												<input type="radio" name="paymethod" value="COD" checked="checked"> COD &nbsp; &nbsp;
+
 												<input type="submit" value="submit" name="submit" class="btn btn-primary">
 
+											</form>
+											<br />
+											<h4>or</h4>
+											<br />
+											<form action="https://uat.esewa.com.np/epay/main" method="POST">
+												<input value="<?php echo $_SESSION['tp'] = $totalprice; ?>" name="tAmt" type="hidden">
+												<input value="<?php echo $_SESSION['tp'] = $totalprice; ?>" name="amt" type="hidden">
+												<input value="0" name="txAmt" type="hidden">
+												<input value="0" name="psc" type="hidden">
+												<input value="0" name="pdc" type="hidden">
+												<input value="EPAYTEST" name="scd" type="hidden">
+												<input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
+												<input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
+												<input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
+												<input class="esewa" src="esewa.jpg" type="image">
+											</form>
 
-											</form>
-											<form action="esewa.php" method="POST">
-												<input type="radio" name="paymethod" value="Internet Banking"> Internet Banking
-												<input type="submit" value="submit" name="submit" class="btn btn-primary">
-											</form>
 										</div>
 										<!-- panel-body  -->
 
